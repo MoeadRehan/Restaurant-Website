@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import menu from '../data'
+import { CartContext } from '../Context/Context'
 
 
 const Menu = () => {
+  const cart = useContext(CartContext);
+  console.log("cart", cart)
   const [filterMenu, setFilterMenu] = useState(menu)
-  console.log(filterMenu);
   const handleFilterBtn = (category) => {
   if(category === "all"){
     setFilterMenu(menu)
@@ -13,6 +15,7 @@ const Menu = () => {
       setFilterMenu(menuCategory);
     }
 }
+
   const categories = menu.reduce(
     (values, item) => {
       if (!values.includes(item.category)) {
@@ -22,14 +25,23 @@ const Menu = () => {
     },
     ["all"]
   );
-  console.log(categories);
+
+
   const categoryBtns = categories.map(category => (
     <button key={category} type="button" className="filter-btn" onClick={() => handleFilterBtn(category)}>
       {category}
     </button>
   ));
+
+  // Cart Function 
+const handleCartBtn = (item) => {
+  cart.setCartItems([
+    ...cart.cartItems, item
+  ])
+}
+
   return (
-    <div className='work-section-wrapper'>
+      <div className='work-section-wrapper'>
       <div className='work-section-top'>
         <p className='primary-subheading'>Menu</p>
         <h3 className='primary-heading'>Choose Your Meal</h3>
@@ -49,7 +61,7 @@ const Menu = () => {
                 </header>
                 <p className='item-text'>{item.desc}</p>
                 <div className='item-btn'>
-                <button>Add to Cart</button>
+                <button onClick={() => handleCartBtn(item)}>Add to Cart</button>
                 </div>
               </div>
             </article>
@@ -57,7 +69,7 @@ const Menu = () => {
         }
       </div>
     </div>
-  )
+  );
 }
 
-export default Menu
+export default Menu;

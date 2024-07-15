@@ -635,6 +635,75 @@ Reviews
   color: var(--clr-white);
 }
 
+/*
+===========
+Cart
+===========
+*/
+
+.cart-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cart-title {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #fe9e0d;
+  text-align: center;
+  font-weight: 600;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.listItem {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.listItem:last-child {
+  border-bottom: none;
+}
+
+.list-title {
+  text-transform: capitalize;
+  font-size: 20px;
+  margin-bottom: 5px;
+  color: #fe9e0d;
+}
+
+.list-desc {
+  text-transform: capitalize;
+  font-size: 16px;
+  margin: 5px 0;
+  color: #666;
+}
+
+.list-price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fe9e0d;
+}
+
+.total {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: right;
+  color: #fe9e0d;
+}
+
 @media (max-width: 800px) {
   .nav-logo-container {
     max-width: 140px;

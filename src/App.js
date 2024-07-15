@@ -20,8 +20,6 @@ function App() {
         <Route path='/contact' element={ <Contacts />}></Route>
         <Route path='/cart' element={<Cart />}></Route>
       </Routes>     
-      
-    
     </div>
   );
 }
